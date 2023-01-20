@@ -1,0 +1,14 @@
+<app-header titulo="Checkbox"></app-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let i of data" (click)="onClick(i)">
+      <ion-checkbox   [color]="i.name" 
+      [(ngModel)]="i.selected" slot="start"></ion-checkbox>
+      <ion-label> {{i.name}} </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="verData()" expand="full" >
+    Ver Data
+  </ion-button>
+</ion-content>

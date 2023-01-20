@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscar Pelicula</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+  <ion-searchbar 
+   placeholder="Buscar pelicula"
+   animated="ios" 
+   debounce="500"
+   [value]="textoBuscar" 
+   (ionChange)="buscar($event)">
+  </ion-searchbar>
+
+</ion-toolbar>
+
+<ion-content>
+     <ion-grid *ngIf="load">
+      <ion-row>
+        <ion-col text-center>
+           <ion-spinner name="bubbles"></ion-spinner>
+        </ion-col>
+      </ion-row>
+     </ion-grid>
+
+     <ion-list *ngIf="totalPeliculas === 0" >
+        <ion-list-header>
+          <ion-label>Ideas</ion-label>
+        </ion-list-header>
+
+        <ion-item *ngFor="let idea of ideas" (click)="setIdea(idea)">
+          <ion-label class="primary">{{idea}}</ion-label>
+        </ion-item>
+
+     </ion-list>
+
+
+     <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6" *ngFor="let pelicula of peliculas | async">
+          <ion-card (click)="verDetalle(pelicula.id)">
+            <img [src]="pelicula.poster_path | imagen" >
+
+            <ion-card-header>
+              <ion-card-subtitle>{{pelicula.release_date}}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              <h3>{{pelicula.title}}</h3>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+     </ion-grid>
+
+</ion-content>

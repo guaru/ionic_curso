@@ -1,0 +1,7 @@
+<ion-slides pager="true" [options]="slideOpts">
+  <ion-slide *ngFor="let item of peliculas  | async">
+     <ion-card  (click)="verDetalle(item.id)">
+         <img class="poster" [src]="item.poster_path | imagen">
+     </ion-card>
+  </ion-slide>
+</ion-slides>

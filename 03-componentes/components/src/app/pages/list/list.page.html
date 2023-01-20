@@ -1,0 +1,43 @@
+<app-header titulo="List - Sliding"></app-header>
+<ion-content class="ion-padding">
+    <ion-list #lista>
+
+        <ion-item-sliding *ngFor="let user of usuarios | async">
+
+            <ion-item-options side="start">
+                <ion-item-option (click)="favorite(user)">
+                    <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+                </ion-item-option>
+                <ion-item-option color="danger" (click)="share(user)">
+                    <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+
+            <ion-item>
+                <ion-label>
+                    <ion-text>
+                        <h1>{{user.name}}</h1>
+                        <p>{{user.email}}</p>
+                    </ion-text>
+                </ion-label>
+
+                <ion-label slot="end" class="ion-text-end">
+                    <ion-text color="tertiary">
+                        {{user.phone}}
+                    </ion-text>
+                </ion-label>
+
+            </ion-item>
+
+            <ion-item-options side="end">
+                <ion-item-option (click)="delete(user)" color="danger">
+                    <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+                </ion-item-option>
+            </ion-item-options>
+
+            
+        </ion-item-sliding>
+
+
+    </ion-list>
+</ion-content>

@@ -1,0 +1,48 @@
+
+URL DOCUMENTACION OFICINAL:
+https://ionicframework.com/docs/intro/cli
+
+INSTALAR IONIC:
+npm install -g @ionic/cli
+
+DESINSTALAR IONIC:
+npm uninstall -g ionic
+
+CREAR NUEVA APLICACION:
+ -- crea nuevo proyecto con tabs 
+ ionic start my-app tabs 
+ -- crea nuevo proyecto con side menu
+ ionic start my-app sidemenu
+ -- crear nuevo proyecto en blanco
+ ionic start blank
+ ionic start 
+ 
+INICIAR APLICACION: 
+ionic serve
+
+IONIC LAB
+ionic serve --lab
+
+slot -- POSICION DE LOS ELEMENTOS START , STOP
+
+
+
+ion-header -> ion-back-button -> defaultHref = Si no existen paginas anteriores aplica la redireccion a esté atributo
+ion-header -> ion-back-button -> text = Texto custom boton atras
+ion-header -> ioc-back-button -> color = Colo boton atras (Primary, Secundary, etc)
+ion-header -> ion-back-button -> mode = mantener diseño para ambas plataformas [ios, md] (material desing)
+
+
+
+COMPILAR PROYECTO
+ionic build
+
+INSTALAR  PLATAFORMA ANDROID Y IOS
+ionic capacitor add android 
+ionic capacitor add ios
+
+COPIAR BUILD PARA EJECTUTAR EN EMULADOR O DEVICE
+ionic capacitor copy android
+
+LIVE RELOAD CAMBIOS -- DEBE ESTÁR INICIADA LA APLICACION EN ANDROID ESTUDIO
+ ionic capacitor run android -l --host=YOUR_IP_ADDRESS
